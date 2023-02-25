@@ -1,8 +1,8 @@
-import { FuncaoProps } from "../@types/types";
 
-export const Teste = (valorDigitado: FuncaoProps) => {
-    console.log(valorDigitado);    
-}
-export const Click = (nome: FuncaoProps) => {
-    alert(`o ${nome} é muito legal`);    
-}
+export const Consol = (valor: string) => {
+    console.log(`${valor} é muito louco`)
+    }
+  
+    export const Click = (menssagem: string, subMensagem: string) => {
+      alert(`${menssagem} Olha ${subMensagem} TOP DEMAIS!`)
+    }
