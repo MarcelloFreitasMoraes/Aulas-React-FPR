@@ -3,3 +3,12 @@
     max-width: 1100;
     padding: 0 2rem;
   }
+  .box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+    border: 2px dashed red;
+    margin: 30px auto;
+    padding: 10px 0;
+  } 

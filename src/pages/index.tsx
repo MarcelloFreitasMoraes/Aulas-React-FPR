@@ -1,22 +1,48 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
-import Hearder from '@/global/components/Hearder'
 
 export default function Home() {
 
-//vai fazer 4 cards que usem o mesmo componente porem mostre texto diferentes
-//mostrar 2 links que consomem o mesmo componente que vai seter passado um booleano por props, se
-//eu passar true exibe o link, seu eu passar false ou nao passar nada, nao exibe o link
-
+  const celulas = [
+    {
+      lider: 'Fulano',
+      numero_celula: 10,
+      mais_de_10: true,
+      membros: ['abreu']
+    },
+    {
+      lider: "Fulano 2",
+      numero_celula: 11,
+      mais_de_10: false,
+      membros: ["joao", "maria", "zezinho"]
+    },
+    {
+      lider: "Fulano 3",
+      numero_celula: 12,
+      mais_de_10: false,
+      membros: ["jose", "mario", "luiza"]
+    }
+  ]
   return (
     <div className={styles.container}>
       <Head>
-        <title>Aula-React-FPR | Props e Componentização</title>
+        <title>Aula-React-FPR | Map</title>
         <meta name="description" content="Aula-React-FPR" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     <Hearder textHeader={true} section1={true} section2={true} footer={true} link1={true} link2={false}/>       
+
+      {celulas.map((item, index) =>{
+        return(
+          <div 
+          className={styles.box}
+          key={index}>
+            <p>{item.lider}</p>
+            <p>{item.numero_celula}</p>
+            {item.mais_de_10 && <span>Lider Bom</span>}
+          </div>
+        )
+      })}
     </div>
   )
 }
