@@ -3,41 +3,70 @@ import styles from '@/styles/Home.module.scss'
 
 export default function Home() {
 
-  const lista = [
+  const familia = [
     {
       nome: 'Marcelo',
-      email: 'programadormarcelo01@gmail.com',
-      elegal: false,
-      estadoCivil: 'Casado',
+      idade: '31 anos',
+      data_de_nascimento: '14/01/1922',
+      nome_mae: 'Maria Elena',
+      trabalha: true
     },
     {
       nome: 'Karina',
-      email: 'kadudavitheo@gmail.com',
-      elegal: null,
-      estadoCivil: 'Casada',
+      idade: '26 anos',
+      data_de_nascimento: '17/06/1996',
+      nome_mae: 'Valdirene',
+      trabalha: true
     },
     {
-      nome: 'Théo',
-      email: 'programadormarcelo01@gmail.com',
-      elegal: true,
-      estadoCivil: 'Solteiro',
+      nome: 'Eduarda',
+      idade: '11 anos',
+      data_de_nascimento: '30/06/2011',
+      nome_mae: 'Karina',
+      trabalha: false
     },
     {
       nome: 'Davi Marcelo',
-      email: 'programadormarcelo01@gmail.com',
-      elegal: true,
-      estadoCivil: 'Solteiro',
+      idade: '8 anos',
+      data_de_nascimento: '15/06/2014',
+      nome_mae: 'Karina',
+      trabalha: false
     }
   ]
 
-  const filtrando = lista.filter(item => {
-    return item.elegal === true || item.elegal === null
+  const favorito = [
+    {
+      nome: 'Marcelo',
+      fruta: 'ABACAXI',
+      data_de_nascimento: '14/01/1922',
+    },
+    {
+      nome: 'Karina',
+      fruta: 'ABACAXI',
+      data_de_nascimento: '17/06/1996'      
+    },
+    {
+      nome: 'Eduarda',
+      fruta: 'UVA',
+      data_de_nascimento: '30/06/2011'    
+    },
+ 
+  ]
+
+  const filtrando = familia.filter(item => {
+    return item.trabalha === false 
+  })
+  
+  const filtrandoFruta = favorito.filter(item => {
+    return item.fruta === 'ABACAXI' 
   })
 
   console.log(filtrando, 'filtrando2');
 
 //Listagem com 4 objetos cada objeto contendo 3 itens diversos e item boolean
-//só 2 sejam true
+//só 2 sejam true e 2 vao ser false e que exiba os itens que tem "false"
+
+//outra lista que tenha 3 objetos com 3 string e só vão dois itens que a string sejá abacaxi
 
   return (
     <div className={styles.container}>
@@ -52,6 +81,19 @@ export default function Home() {
           <div className={styles.box}
             key={index}>
             <p>{item.nome}</p>
+            <p>{item.data_de_nascimento}</p>
+            <p>{item.nome_mae}</p>
+          </div>
+        )
+      })}
+
+       {filtrandoFruta.map((item, index) => {
+        return (
+          <div className={styles.box}
+            key={index}>
+            <p>{item.nome}</p>
+            <p>{item.fruta}</p>
+            <p>{item.data_de_nascimento}</p>
           </div>
         )
       })}
